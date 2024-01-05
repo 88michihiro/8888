@@ -1,0 +1,873 @@
+/* ------------video---------------- */
+
+
+.slideshow-container {
+  width: 100%; /* コンテナの最大幅 */
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+}
+
+
+
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ビューポートの高さに合わせる */
+  overflow: hidden;
+}
+
+.video-background .overlay-image {
+  position: absolute;
+  bottom: 0; /* 左下に配置 */
+  left: 0;
+  width: 400px; /* 画像のサイズを調整 */
+  height: auto; /* アスペクト比を保持 */
+  object-fit: cover; /* 画像がコンテナに収まるように調整 */
+  z-index: 2; /* 前景層 */
+  animation: fadeInUp 2s ease forwards; /* アニメーションの適用 */
+}
+
+.video-background .ovelay-image {
+  position: absolute;
+  top: 0; 
+  left: 90%;
+  width: 50px; /* 画像のサイズを調整 */
+  height: auto; /* アスペクト比を保持 */
+  object-fit: cover; /* 画像がコンテナに収まるように調整 */
+  z-index: 2; /* 前景層 */
+  animation: fadeInUp 2s ease forwards; /* アニメーションの適用 */
+}
+
+.video-background .ovlay-image {
+  position: absolute;
+  top: 8%; 
+  left: 90%;
+  width: 90px; /* 画像のサイズを調整 */
+  height: auto; /* アスペクト比を保持 */
+  object-fit: cover; /* 画像がコンテナに収まるように調整 */
+  z-index: 2; /* 前景層 */
+  animation: fadeInUp 1s ease forwards; /* アニメーションの適用 */
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* -------------------------------------- */
+
+/* ハンバーガーメニューアイコンのスタイル */
+.hamburger-menu {
+  cursor: pointer;
+  display: inline-block;
+  width: 30px; /* 幅 */
+  height: 25px; /* 高さ */
+  background-color: rgba(0, 0, 0, 0.5); /* 背景色（半透明の黒） */
+  padding: 10px; /* 内側の余白 */
+  border-radius: 5px; /* 角の丸み */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 影を追加（オプション） */
+  z-index: 3; /* 他の要素より前面に表示 */
+}
+
+.hamburger-menu .bar {
+  height: 2px;
+  width: 100%;
+  background-color: #fff; /* バーの色 */
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+/* ナビゲーションメニューのスタイル */
+.navbar {
+  display: none; /* 初期状態では非表示 */
+  background-color: rgba(0, 0, 0, 0.8); /* 半透明の背景色 */
+  padding: 15px; /* 内側の余白 */
+  border-radius: 5px; /* 角の丸み */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 影を追加（オプション） */
+  z-index: 3; /* 他の要素より前面に表示 */
+  position: absolute; /* 必要に応じて位置を指定 */
+  top: 40px; /* ハンバーガーメニューの下 */
+  left: 10px; /* 左端からの距離 */
+  width: 200px; /* 幅の指定 */
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff; /* リンクの色 */
+  display: block; /* リンクをブロック要素に */
+  padding: 10px 0; /* リンクの上下のパディング */
+  transition: background-color 0.3s; /* ホバー効果 */
+}
+
+.navbar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* ホバー時の背景色 */
+}
+
+/* メニュー表示用のスタイル */
+.navbar.show {
+  display: block;
+}
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+}
+
+.main-image-container {
+  position: relative;
+  width: 100%;
+  margin: 0 ;
+  
+}
+
+.main-image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay-image-container {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.north-image-container {
+  position: absolute;
+  top: -80px;
+  left: 330px;
+  width: 210%;
+}
+
+
+
+.hover-image-container {
+  position: absolute;
+  width: 25%;
+  margin-top: 100px;
+}
+
+.hover-image-container img,
+.hover-image img {
+  width: 100%;
+  height: auto;
+}
+
+.original-image {
+  transition: opacity 0.3s ease;
+}
+
+.hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hover-image:hover {
+  transform: scale(1.2);
+}
+
+.small-images-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 15%;
+}
+
+.image-link {
+  margin-bottom: 10px;
+}
+
+.small-image {
+  transition: transform 0.3s ease;
+}
+
+.changed-color {
+  filter: sepia(100%);
+  /* または好みの色変更効果 */
+}
+
+
+
+
+.hover-image-container:hover .original-image {
+  opacity: 0;
+}
+
+.hover-image-container:hover .hover-image {
+  opacity: 1;
+}
+
+#east {
+  top: 20px;
+  left: 300px
+}
+
+#south {
+  top: 300px;
+  left: 300px;
+}
+
+/* -----------west----------------------- */
+
+.small-image:hover {
+  transform: scale(1.4);
+  z-index: 1;
+}
+
+#small-image1 {
+  position: absolute;
+  top: 10px;
+  /* 上からの位置 */
+  left: 20px;
+  /* 左からの位置 */
+}
+
+#small-image2 {
+  position: absolute;
+  top: 50px;
+  left: 150px;
+}
+
+#small-image3 {
+  position: absolute;
+  top: 220px;
+  /* 上からの位置 */
+  left: 150px;
+  /* 左からの位置 */
+}
+
+#s-image4 {
+  position: absolute;
+  top: 0px;
+  left: 200px;
+}
+
+#small-image5 {
+  position: absolute;
+  top: 200px;
+  /* 上からの位置 */
+  left: 220px;
+  /* 左からの位置 */
+}
+
+#small-image6 {
+  position: absolute;
+  top: 30px;
+  left: 80px;
+}
+
+
+
+#small-image7 {
+  position: absolute;
+  top: 180px;
+  /* 上からの位置 */
+  left: 80px;
+  /* 左からの位置 */
+}
+
+#small-image8 {
+  position: absolute;
+  top: 150px;
+  left: 140px;
+}
+
+#small-image9 {
+  position: absolute;
+  top: -20px;
+  /* 上からの位置 */
+  left: 120px;
+  /* 左からの位置 */
+}
+
+#small-image10 {
+  position: absolute;
+  top: 250px;
+  left: 70px;
+}
+/* -------------------------------------- */
+
+/* ------------------south--------------------- */
+
+.south-image-container {
+  position: absolute;
+  top: 260px;
+  left: 330px;
+  width: 170%;
+}
+
+.south-images-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: auto;
+}
+
+.south-image {
+  transition: transform 0.3s ease;
+}
+
+.south-image:hover {
+  transform: scale(1.4);
+  z-index: 1;
+}
+
+
+#s-image62 {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  width: 230%;
+}
+#s-image18{
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  width: 230%;
+}
+#s-image19{
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  width: 230%;
+}
+#s-image39{
+  position: absolute;
+  top: 50px;
+  left: 110px;
+  width: 230%;
+}
+
+#s-image77{
+  position: absolute;
+  top: 70px;
+  left: 160px;
+  width: 350%;
+}
+#s-image9{
+  position: absolute;
+  top: 60px;
+  left: 230px;
+  width: 230%;
+}
+#s-image23{
+  position: absolute;
+  top: 160px;
+  left: 190px;
+  width: 230%;
+}
+#s-image41{
+  position: absolute;
+  top: 190px;
+  left: 160px;
+  width: 230%;
+}
+
+#s-image38{
+  position: absolute;
+  top: 240px;
+  left: 170px;
+  width: 230%;
+}
+#s-image68{
+  position: absolute;
+  top: 245px;
+  left: 215px;
+  width: 220%;
+}
+#s-image46{
+  position: absolute;
+  top: 240px;
+  left: 250px;
+  width: 230%;
+}
+#s-image8{
+  position: absolute;
+  top: 260px;
+  left: 140px;
+  width: 230%;
+}
+#s-image10{
+  position: absolute;
+  top: 260px;
+  left: 170px;
+  width: 300%;
+}
+#s-image26{
+  position: absolute;
+  top: 320px;
+  left: 170px;
+  width: 230%;
+}
+#s-image64{
+  position: absolute;
+  top: 320px;
+  left: 200px;
+  width: 230%;
+}
+#s-image29{
+  position: absolute;
+  top: 320px;
+  left: 240px;
+  width: 280%;
+}
+
+#s-image63{
+  position: absolute;
+  top: 310px;
+  left: 280px;
+  width: 300%;
+}
+#s-image83{
+  position: absolute;
+  top: 280px;
+  left: 320px;
+  width: 300%;
+}
+#s-image65{
+  position: absolute;
+  top: 315px;
+  left: 370px;
+  width: 230%;
+}
+#s-image42{
+  position: absolute;
+  top: 220px;
+  left: 300px;
+  width: 300%;
+}
+#s-image24{
+  position: absolute;
+  top: 220px;
+  left: 355px;
+  width: 280%;
+}
+#s-image48{
+  position: absolute;
+  top: 160px;
+  left: 365px;
+  width: 230%;
+}
+#s-image14{
+  position: absolute;
+  top: 190px;
+  left: 320px;
+  width: 230%;
+}
+#s-image30{
+  position: absolute;
+  top: 260px;
+  left: 380px;
+  width: 230%;
+}
+#s-image57{
+  position: absolute;
+  top: 180px;
+  left: 400px;
+  width: 230%;
+}
+#s-image7{
+  position: absolute;
+  top: 280px;
+  left: 450px;
+  width: 300%;
+}
+#s-image80{
+  position: absolute;
+  top: 220px;
+  left: 430px;
+  width: 400%;
+}
+#s-image59{
+  position: absolute;
+  top: 170px;
+  left: 465px;
+  width: 330%;
+}
+#s-image78{
+  position: absolute;
+  top: 80px;
+  left: 455px;
+  width: 230%;
+  z-index: 1;
+}
+#s-image52{
+  position: absolute;
+  top: 40px;
+  left: 420px;
+  width: 270%;
+}
+#s-image11{
+  position: absolute;
+  top: 25px;
+  left: 365px;
+  width: 230%;
+}
+#s-image17{
+  position: absolute;
+  top: 110px;
+  left: 390px;
+  width: 280%;
+}
+#s-image82{
+  position: absolute;
+  top: 55px;
+  left: 310px;
+  width: 330%;
+}
+#s-image25{
+  position: absolute;
+  top: 0px;
+  left: 390px;
+  width: 330%;
+}
+#s-image43{
+  position: absolute;
+  top: 5px;
+  left: 320px;
+  width: 280%;
+}
+#s-image44{
+  position: absolute;
+  top: 20px;
+  left: 260px;
+  width: 230%;
+}
+#s-image73{
+  position: absolute;
+  top: 110px;
+  left: 250px;
+  width: 230%;
+}
+#s-image61{
+  position: absolute;
+  top: 130px;
+  left: 290px;
+  width: 200%;
+}
+
+#s-image20{
+  position: absolute;
+  top: 130px;
+  left: 320px;
+  width: 250%;
+}
+
+#s-image67{
+  position: absolute;
+  top: 90px;
+  left: 290px;
+  width: 230%;
+}
+
+/* ----------------------------------------------- */
+
+/* --------------north-------------------- */
+.east-image-container {
+  position: absolute;
+  top: 210px;
+  left: 870px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+#small-image87 {
+  position: absolute;
+  top: 160px;
+  left: 60px;
+  width: 70%;
+}
+
+#small-image86 {
+  position: absolute;
+  top: 200px;
+  left: 70px;
+  width: 50%;
+}
+
+#small-image4 {
+  position: absolute;
+  top: 180px;
+  left: 20px;
+  width: 50%;
+}
+
+#small-image35 {
+  position: absolute;
+  top: 200px;
+  left: 130px;
+  width: 50%;
+}
+
+#small-image15 {
+  position: absolute;
+  top: 120px;
+  left: 160px;
+  width: 50%;
+}
+
+#small-image66 {
+  position: absolute;
+  top: 70px;
+  left: 110px;
+  width: 40%;
+}
+
+#small-image27 {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  width: 50%;
+}
+
+#small-image70 {
+  position: absolute;
+  top: 160px;
+  left: 320px;
+  width: 60%;
+}
+
+#small-image49 {
+  position: absolute;
+  top: 40px;
+  left: 280px;
+  width: 50%;
+}
+
+#small-image47 {
+  position: absolute;
+  top: 80px;
+  left: 320px;
+  width: 60%;
+}
+
+#small-image76 {
+  position: absolute;
+  top: 60px;
+  left: 390px;
+  width: 40%;
+}
+
+#small-image36 {
+  position: absolute;
+  top: 100px;
+  left: 560px;
+  width: 50%;
+}
+
+#small-image16 {
+  position: absolute;
+  top: 50px;
+  left: 580px;
+  width: 50%;
+}
+
+/* -------------east---------------------------- */
+
+#s-image72 {
+  position: absolute;
+  top: 180px;
+  left: 10px;
+  width: 60%;
+}
+
+#s-image74 {
+  position: absolute;
+  top: 120px;
+  left: 10px;
+  width: 50%;
+}
+
+#s-image71 {
+  position: absolute;
+  top: 180px;
+  left: 50px;
+  width: 50%;
+}
+
+#s-image13 {
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  width: 70%;
+}
+#s-image6 {
+  position: absolute;
+  top: -10px;
+  left: 50px;
+  width: 70%;
+}
+#s-image3 {
+  position: absolute;
+  top: 140px;
+  left: 100px;
+  width: 50%;
+}
+#s-image1 {
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  width: 50%;
+}
+#s-image56 {
+  position: absolute;
+  top: 200px;
+  left: 120px;
+  width: 70%;
+}
+#s-image31 {
+  position: absolute;
+  top: 150px;
+  left: 130px;
+  width: 70%;
+}
+#s-image53 {
+  position: absolute;
+  top: 250px;
+  left: 90px;
+  width: 100%;
+}
+#s-image55 {
+  position: absolute;
+  top: 325px;
+  left: 90px;
+  width: 100%;
+}
+
+#s-image22 {
+  position: absolute;
+  top: 300px;
+  left: 190px;
+  width: 80%;
+}
+#s-image2 {
+  position: absolute;
+  top: 200px;
+  left: 170px;
+  width: 50%;
+}
+#s-image60 {
+  position: absolute;
+  top: 130px;
+  left: 170px;
+  width: 90%;
+}
+#s-image81 {
+  position: absolute;
+  top: 140px;
+  left: 260px;
+  width: 70%;
+}
+#s-image75 {
+  position: absolute;
+  top: 70px;
+  left: 210px;
+  width: 50%;
+}
+#s-image45 {
+  position: absolute;
+  top: 80px;
+  left: 170px;
+  width: 65%;
+}
+#s-image34 {
+  position: absolute;
+  top: 50px;
+  left: 230px;
+  width: 70%;
+}
+#s-image50 {
+  position: absolute;
+  top: 10px;
+  left: 220px;
+  width: 40%;
+}
+#s-image5 {
+  position: absolute;
+  top: -20px;
+  left: 250px;
+  width: 80%;
+}
+#s-image12 {
+  position: absolute;
+  top: -50px;
+  left: 180px;
+  width: 70%;
+}
+#s-image88 {
+  position: absolute;
+  top: -10px;
+  left: 130px;
+  width: 70%;
+}
+#s-image58 {
+  position: absolute;
+  top: 40px;
+  left: 130px;
+  width: 60%;
+}
+#s-image85 {
+  position: absolute;
+  top: 10px;
+  left: 180px;
+  width: 60%;
+}

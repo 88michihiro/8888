@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+}
+
+.image-with-video-container {
+  position: relative;
+  display: block; /* または必要に応じて別の方法で配置 */
+  margin: 0;
+  padding: 0;
+  width: 100%; /* コンテナの幅を親要素に合わせる */
+  height: auto; /* 高さは内容に合わせる */
+}
+
+.image-with-video-container img.page {
+  width: 100%; /* または必要に応じて調整 */
+  height: auto;
+  margin: 0;
+  display: block; /* 余白を削除し、ブロックレベルで表示 */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 11%;
+  left: 12%;
+  width: 74%;
+  height: 54%;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-with-video-container:hover .video-overlay {
+  display: flex; /* ホバー時に表示 */
+}
+
+.video-overlay iframe {
+  width: 100%; /* 動画のサイズ */
+  height: 100%;
+}
+
+.buttons-container {
+  position: absolute; /* 絶対位置指定 */
+  bottom: 0; /* 親コンテナの下部に配置 */
+  left: 0; /* 親コンテナの左端に配置 */
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* 親コンテナの幅いっぱいに */
+  margin: 0;
+  padding: 0; /* 念のため、パディングもゼロに */
+}
+
+.buttons-container a {
+  flex: 1; /* ボタンに等しいフレックス項目を与える */
+  margin: 0; /* リンクの外側の余白を取り除く */
+}
+
+.buttons-container a img {
+  width: 100%; /* ボタンの画像をフレックスアイテムの幅いっぱいにする */
+  height: auto; /* 画像のアスペクト比を保持 */
+  margin: 0; /* 画像の余白を取り除く */
+}
